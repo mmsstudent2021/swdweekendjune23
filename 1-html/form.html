@@ -1,0 +1,117 @@
+<form action="https://mms-it.com" id="reg">
+  <fieldset>
+    <legend>Student Register Form</legend>
+
+    <table>
+      <tr>
+        <td>
+          <label for="yourName">Your Name</label>
+        </td>
+        <td>
+          <input type="text" id="yourName" name="your_name" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="yourEmail">Your Email</label>
+        </td>
+        <td>
+          <input type="email" id="yourEmail" name="your_email" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="yourpassword">Your password</label>
+        </td>
+        <td>
+          <input type="password" id="yourpassword" name="your_password" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="bd">Date of Birth</label>
+        </td>
+        <td>
+          <input type="date" id="bd" name="bd" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="amount"> Scholar amount</label>
+        </td>
+        <td>
+          <input type="number" id="amount" name="amount" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="country">Select Country</label>
+        </td>
+        <td>
+          <select name="country" id="country">
+            <option value="mm">Myanmar</option>
+            <option value="th">Thailand</option>
+            <option value="ch">China</option>
+            <option value="kr">Korea</option>
+            <option value="jp">Japan</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <hr />
+
+          <label>Gender</label>
+
+          <div>
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male">Male</label>
+          </div>
+
+          <div class="">
+            <input type="radio" id="Female" name="gender" value="female" />
+            <label for="Female">Female</label>
+          </div>
+          <hr />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <label for="">Your Current Skill</label>
+
+          <div>
+            <input type="checkbox" id="html" name="skill" value="html" />
+            <label for="html">HTML</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="CSS" name="skill" value="CSS" />
+            <label for="CSS">CSS</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="JS" name="skill" value="JS" />
+            <label for="JS">JS</label>
+          </div>
+          <hr />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <label for="Address">Address</label>
+          <textarea name="Address" id="Address" cols="35" rows="3"></textarea>
+        </td>
+      </tr>
+    </table>
+    <hr />
+    <input type="hidden" form="reg" name="reg_id" value="15" />
+
+    <button type="submit" form="reg">Register</button>
+
+    <!-- <input type="submit" value="Click Me"> -->
+  </fieldset>
+</form>
