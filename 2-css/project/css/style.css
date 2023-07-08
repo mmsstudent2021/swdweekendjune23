@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Padauk:wght@400;700&family=Roboto:wght@300;400;700&display=swap");
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+/* font - size, family  */
+/* 1. Heading font  */
+/* 2. Body (based) font  */
+/* 3. - Display font  */
+
+/* color usage */
+/* primary color */
+/* secondary color */
+/*  - accent color */
+/* status color - success, danger, warning */
+
+/* css variable */
+
+:root {
+  --primary: #f85959;
+  --secondary: #575151;
+  --danger: #f3558e;
+  --dark: #000000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", "Padauk", sans-serif;
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  padding: 20px;
+}
+
+.box {
+  border: 3px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.sub-title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.rounded-circle {
+  border-radius: 50%;
+}
+
+/* button css */
+
+.btn {
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 45px;
+  height: 45px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  border: 2px solid var(--secondary);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  border: 2px solid var(--danger);
+}
+
+.btn-dark {
+  background-color: var(--dark);
+  border: 2px solid var(--dark);
+}
+
+.btn-outline-primary {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+.btn-outline-secondary {
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+  background-color: transparent;
+}
+
+.btn-outline-danger {
+  border: 2px solid var(--danger);
+  color: var(--danger);
+  background-color: transparent;
+}
+
+.btn-outline-dark {
+  border: 2px solid var(--dark);
+  color: var(--dark);
+  background-color: transparent;
+}
+
+.btn-icon {
+  /* width: 40.33px;
+    height: 40.33px; */
+  /* width: 50px; */
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+.btn-pill {
+  border-radius: calc(45px / 2);
+}
+
+/* table css */
+
+.table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.table tr {
+  vertical-align: top;
+}
+
+.table th,
+td {
+  border: 1px solid black;
+  padding: 10px 20px;
+}
+
+.table th {
+  text-align: left;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.align-top {
+  vertical-align: top;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+.align-bottom {
+  vertical-align: bottom;
+}
+
+.table-borderless {
+  border: none;
+}
+
+.table-borderless td,
+.table-borderless th {
+  border: none;
+}
+
+.table-strip {
+  border: none;
+}
+
+.table-strip td,
+.table-strip th {
+  border: none;
+}
+
+.table-strip thead {
+  background-color: #6e6e6e;
+  color: white;
+}
+
+.table-strip tbody tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.table tbody tr:hover {
+  background-color: rgb(232, 232, 232) !important;
+}
+
+@media print {
+  .d-print-none {
+    display: none;
+  }
+
+  table,
+  td,
+  th {
+    border: 1px solid gray !important;
+    color: gray;
+    background-color: transparent !important;
+  }
+}
+
+/* list css */
+
+.html-list {
+  /* border: 1px solid red;
+    padding: 10px; */
+  list-style-type: square;
+}
+
+.html-list li {
+  /* border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px; */
+}
+
+.list-group {
+  /* border: 1px solid red; */
+  /* padding: 10px; */
+  list-style-type: none;
+}
+
+.list-group li {
+  border: 1px solid black;
+  padding: 10px;
+  /* margin-bottom: 10px; */
+  /* border-radius: 5px; */
+}
+
+.list-group li:first-child {
+  /* background-color: pink; */
+  border-radius: 5px 5px 0 0;
+}
+
+.list-group li:last-child {
+  /* background-color: pink; */
+  border-radius: 0 0 5px 5px;
+}
+
+.list-group li:hover {
+  background-color: #cccccc;
+}
+
+.list-group li.active {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.nav-list {
+  list-style-type: none;
+}
+
+.nav-list li {
+  /* border: 1px solid black; */
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.nav-list li.active {
+  /* border-bottom: 5px solid black; */
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+/* css media query */
+@media screen and (max-width: 540px) {
+  .nav-list li {
+    display: block;
+  }
+}
