@@ -20,6 +20,7 @@
   --secondary: #575151;
   --danger: #f3558e;
   --dark: #000000;
+  --heading-font : "Montserrat", sans-serif;
 }
 
 * {
@@ -27,6 +28,7 @@
   margin: 0;
   font-family: "Roboto", "Padauk", sans-serif;
   font-size: 14px;
+  line-height: 23px;
 }
 
 h1,
@@ -40,6 +42,10 @@ h6 {
 
 body {
   padding: 20px;
+}
+
+.mb-20{
+  margin-bottom: 20px;
 }
 
 .box {
@@ -293,4 +299,168 @@ td {
   .nav-list li {
     display: block;
   }
+}
+
+
+.card{
+  border: 2px solid black;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.card-body{
+  padding: 20px;
+}
+
+.card-title{
+  font-size: 20px ;
+  margin-bottom: 10px;
+}
+
+.card-text{
+  color: #757272;
+}
+
+.card-img{
+  width: 100%;
+}
+
+.card-rating{
+  margin-bottom: 10px;
+}
+
+.card-rating .stars{
+  display: inline-block;
+}
+
+.card-rating .stars .fa-star{
+
+  font-size: 20px;
+  color: rgb(253, 190, 28);
+
+}
+
+.card-rating p{
+  display: inline-block;
+  color: #787878;
+  font-weight: bold;
+}
+
+.add-to-cart-btn{
+  display: block;
+  width: 100%;
+  border-radius: 0;
+}
+
+.card-price{
+  color: #9a9a9a;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-price span{
+  font-size: 30px;
+  color: #000000;
+}
+
+.form{
+}
+
+.form fieldset{
+  width: 450px;
+  margin:20px  auto;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 2px solid var(--dark);
+}
+
+.form legend{
+  padding: 0 10px;
+  font-size: 25px;
+  font-family: var(--heading-font);
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-group{
+  /* background-color: red; */
+  margin-bottom: 20px;
+
+}
+
+.form-label{
+  font-family: var(--heading-font);
+  font-size: 20px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-input,.form-select{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--dark);
+  /* font-size: 20px; */
+  padding: 10px;
+  height: 45px;
+
+}
+
+.form-select{
+  appearance: none;
+  background-image: url(../images/dropdown.svg);
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: right 10px center;
+}
+
+textarea.form-input {
+   height: auto;
+}
+
+.form-input:focus-visible{
+  outline: none;
+  background-color: #dcdcdc;
+}
+
+.form-btn{
+  border-radius: 0;
+  width: 100%;
+  display: block;
+  text-transform: uppercase;
+  font-family: var(--heading-font);
+}
+
+.form-check{
+  display: block;
+}
+
+.form-check-input{
+  /* accent-color: var(--dark);
+  width: 20px;
+  height: 20px;
+  border: 10px; */
+  appearance: none;
+  /* background-color: red; */
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  vertical-align: middle;
+
+}
+
+.form-check-input:checked {
+  background-color: var(--dark);
+  background-image: url(../images/check.svg);
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.form-check-label{
+  font-family: var(--heading-font);
+  cursor: pointer;
+  user-select: none;
 }

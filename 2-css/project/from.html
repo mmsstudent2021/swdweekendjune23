@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Table UI</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main>
+      <form class="form" action="#">
+        <fieldset>
+          <legend>Apply Job</legend>
+
+          <div class="form-group">
+            <label class="form-label" for="your_name">
+              <i class="fa-solid fa-fw fa-user"></i>
+              Your Name
+            </label>
+            <input
+              class="form-input"
+              name="your_name"
+              id="your_name"
+              type="text"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="your_email">
+              <i class="fa-solid fa-fw fa-envelope"></i>
+
+              Your Email
+            </label>
+            <input
+              class="form-input"
+              name="your_email"
+              id="your_email"
+              type="email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">
+              <i class="fa-solid fa-fw fa-lock"></i>
+
+              Password
+            </label>
+            <input
+              class="form-input"
+              name="password"
+              id="password"
+              type="password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="select_job">
+              <i class="fa-solid fa-fw fa-briefcase"></i>
+              Select Position
+            </label>
+            <select class="form-select" name="select_job" id="select_job">
+              <option value="frontend">Frontend Developer</option>
+              <option value="backend">Backend Developer</option>
+              <option value="DevOps">DevOps</option>
+              <option value="designer">Designer</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="address">
+              <i class="fa-solid fa-fw fa-graduation-cap"></i>
+              Your Skill
+            </label>
+            <div class=" form-check">
+                <input class="form-check-input" type="checkbox" id="html" value="html" name="skill">
+                <label class=" form-check-label" for="html">HTML</label>
+            </div>
+
+            <div class=" form-check">
+                <input class="form-check-input" type="checkbox" id="css" value="css" name="skill">
+                <label class=" form-check-label" for="css">CSS</label>
+            </div>
+
+            <div class=" form-check">
+                <input class="form-check-input" type="checkbox" id="js" value="js" name="skill">
+                <label class=" form-check-label" for="js">JavaScript</label>
+            </div>
+
+            <div class=" form-check">
+                <input class="form-check-input" type="checkbox" id="php" value="php" name="skill">
+                <label class=" form-check-label" for="php">PHP</label>
+            </div>
+
+            <div class=" form-check">
+                <input class="form-check-input" type="checkbox" id="sql" value="sql" name="skill">
+                <label class=" form-check-label" for="sql">SQL</label>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="address">
+              <i class="fa-solid fa-fw fa-location-dot"></i>
+
+              Address
+            </label>
+            <textarea
+              class="form-input"
+              rows="5"
+              name="address"
+              id="address"
+            ></textarea>
+          </div>
+
+          <button class="btn btn-dark form-btn">Submit</button>
+        </fieldset>
+      </form>
+    </main>
+    <div class="" style="height: 1000px"></div>
+  </body>
+</html>
