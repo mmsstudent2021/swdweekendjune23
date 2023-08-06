@@ -70,19 +70,19 @@ const results = [];
 let resultIndex = 0;
 
 function calcArea(w, b) {
-    // return ` ${w} * ${b} = ${ w * b } sqft`;
-//   return w * b + "sqft";
-    let area = w*b;
+  // return ` ${w} * ${b} = ${ w * b } sqft`;
+  //   return w * b + "sqft";
+  let area = w * b;
 
-    const result = {
-        width : w + "ft",
-        breadth : b + "ft",
-        area : area + " sqft"
-    }
+  const result = {
+    width: w + "ft",
+    breadth: b + "ft",
+    area: area + " sqft",
+  };
 
-    results [resultIndex++] = result; // add result to results array
+  results[resultIndex++] = result; // add result to results array
 
-    return result;
+  return result;
 }
 
 // console.log(calcArea(17, 60));
@@ -94,10 +94,10 @@ function calcArea(w, b) {
 // console.table(results);
 
 const rates = {
-    USD : 2100,
-    SGD : 1579,
-    EUR : 2335
-}
+  USD: 2100,
+  SGD: 1579,
+  EUR: 2335,
+};
 
 // console.log(rates.USD);
 // console.log(rates["SGD"]);
@@ -108,72 +108,97 @@ const rates = {
 // 45SGD to ?MMK
 // 678EUR to ?MMK
 
-function toMMK(amount, currency){
-    // console.log(typeof currency);
-    // console.log(rates[currency]);
-    let exchangeRate = rates[currency];
-    return `${ amount * exchangeRate } MMK`;
+function toMMK(amount, currency) {
+  // console.log(typeof currency);
+  // console.log(rates[currency]);
+  let exchangeRate = rates[currency];
+//   console.log(exchangeRate);
+  // return `${ amount * exchangeRate } MMK`;
+//   if (exchangeRate != undefined) {
+//     return amount * exchangeRate;
+//   }
+
+
+  if (exchangeRate) {
+    return amount * exchangeRate;
+  }
+  
+  
+
+  return currency+" is not supported";
 }
 
-// console.log(toMMK(100,"USD"));
-// console.log(toMMK(45,"SGD"));
-// console.log(toMMK(678,"EUR"));
+console.log(toMMK(100, "YEN"));
+console.log(toMMK(45,"SGD"));
+console.log(toMMK(678,"EUR"));
 
 // 100000 MMk to USD
 // 35000 MMk to SGD
 // 600000 MMk to EUR
 
-function toCurrency(amount,currency){
-    let exchangeRate = rates[currency];
-    return `${(amount / exchangeRate).toFixed(2)} ${currency}`;
-}   
+function toCurrency(amount, currency) {
+  let exchangeRate = rates[currency];
+  // return `${(amount / exchangeRate).toFixed(2)} ${currency}`;
+  return amount / exchangeRate;
+}
 
 // console.log(toCurrency(100000, "USD"));
 // console.log(toCurrency(35000, "SGD"));
 // console.log(toCurrency(600000, "EUR"));
 
+// 100 USD = ? SGD
+// 50 EUR = ? SGD
 
+function exchange(amount, formCurrency, to) {
+  // let formCurrencyRate = rates[formCurrency];
+  let mmk = toMMK(amount, formCurrency);
+  return toCurrency(mmk, to);
+  // console.log(mmk);
+}
+
+// console.log(exchange(100,"USD","SGD"));
+// console.log(exchange(50,"EUR","SGD"));
 
 const fruits = {
-    apple : 500,
-    orange : 300,
-    mango : 700,
-    banana : 200
+  apple: 500,
+  orange: 300,
+  mango: 700,
+  banana: 200,
 };
 
 let total = 0;
 const voucher = [];
 let voucherIndex = 0;
 
-function buy(item,quantity){
-    let itemPrice = fruits[item];
-    // console.log(itemPrice);
-    let cost = quantity * itemPrice;
-    total = total + cost;
-    let list = {
-        item,
-        price : itemPrice,
-        quantity,
-        cost 
-    }
+function buy(item, quantity) {
+  let itemPrice = fruits[item];
+  // console.log(itemPrice);
+  let cost = quantity * itemPrice;
+  total = total + cost;
+  let list = {
+    item,
+    price: itemPrice,
+    quantity,
+    cost,
+  };
 
-    voucher[voucherIndex++] = list;
-    return cost;
+  voucher[voucherIndex++] = list;
+  return cost;
 }
 
-buy("apple",5);
-buy("orange",8);
-buy("mango",2);
-buy("banana",15);
+buy("apple", 5);
+buy("orange", 8);
+buy("mango", 2);
+buy("banana", 15);
 
-console.table(voucher);
+// console.table(voucher);
 
 // console.log("total",total);
 // console.log("tax",calcTax(total));
 // console.log("net total", total + calcTax(total))
 
-console.table({
-    total,
-    tax : calcTax(total),
-    netTotal : total + calcTax(total)
-});
+// console.table({
+//     total,
+//     tax : calcTax(total),
+//     netTotal : total + calcTax(total)
+// });
