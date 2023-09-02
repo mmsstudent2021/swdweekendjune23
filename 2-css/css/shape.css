@@ -1,0 +1,220 @@
+:root{
+    --primary : #377bff;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.box{
+    padding: 50px;
+}
+
+.square{
+    /* background-color: #377bff; */
+    /* height: 100px;
+    width: 100px; */
+    /* padding: 50px;
+    display: inline-block; */
+    border: 50px solid var(--primary);
+    display: inline-block;
+}
+
+.circle{
+    border: 50px solid var(--primary);
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.d{
+    border: 50px solid var(--primary);
+    display: inline-block;
+    border-radius: 0 50% 50% 0;
+}
+
+.drop{
+    border: 50px solid var(--primary);
+    display: inline-block;
+    border-radius: 0 50% 50% 50%;
+}
+
+.leaf{
+    border: 50px solid var(--primary);
+    display: inline-block;
+    border-radius: 0 50%;
+}   
+
+.dash-square{
+    padding: 50px;
+    background-color: #d8e5ff;
+    display: inline-block;
+    border: 5px dashed var(--primary);
+}
+
+.dash-circle{
+    padding: 50px;
+    background-color: #d8e5ff;
+    display: inline-block;
+    border: 5px dashed var(--primary);
+    border-radius: 50%;
+}
+
+.bordered-left-square{
+    padding: 50px;
+    background-color: #d8e5ff;
+    display: inline-block;
+    border-left: 5px solid var(--primary);
+}
+
+.t1{
+    display: inline-block;
+    border: 100px solid transparent;
+    /* border-color: yellow green red blue; */
+    /* border-color: transparent transparent red red; */
+
+    /* border-color: transparent red red transparent; */
+
+    border-bottom-color: var(--primary);
+    border-bottom-width: 100px;
+    border-top-width: 0;
+    border-left-width: 100px;
+    border-right-width: 100px;
+}
+
+.price-tag{
+    background-color: var(--primary);
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 20px;
+    position: relative;
+    margin-right: 25px;
+}
+
+.price-tag::before{
+    content: "";
+    border: 25px solid transparent;
+    border-left-color: var(--primary);
+    /* border-color: yellow green red blue; */
+    display: inline-block;
+    right: -25px;
+    position: absolute;
+    border-right-width: 0;
+
+}
+
+.price-tag::after{
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: -7.5px;
+}
+
+.circle-progress{
+    border: 50px solid var(--primary);
+    display: inline-block;
+    border-radius: 50%;
+    border-top-color: #d8e5ff;
+    rotate: 315deg;
+    position: relative;
+}
+
+.circle-progress::before{
+    position: absolute;
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 0;
+    bottom: 0;
+    left: -35px;
+    right: 0;
+    margin: auto;
+}
+
+.circle-progress::after{
+    content: "75%";
+    position: absolute;
+    rotate: 42deg;
+    left: -14px;
+    top: -10px;
+
+}
+
+
+.ribbon{
+    position: relative;
+    display: inline-block;
+    margin: 0 32px;
+}
+
+.ribbon .start {
+    border: 20px solid #a9c6ff;
+    border-left-color: transparent;
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: -32px;
+    z-index: 1;
+    
+
+}
+
+.ribbon .mid {
+    background-color: #377bff;
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.ribbon .mid::before{
+    content: "";
+    border: 4px solid #2b406b;
+    border-color: #2b406b #2b406b transparent transparent;
+    display: inline-block;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+
+
+}
+
+.ribbon .mid::after{
+    content: "";
+    border: 4px solid #2b406b;
+    border-color: #2b406b transparent transparent #2b406b ;
+
+    display: inline-block;
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+}
+
+.ribbon .end {
+    border: 20px solid #a9c6ff;
+    border-right-color: transparent;
+
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    right: -32px;
+    z-index: 1;
+
+}
+
+.poe{
+    clip-path: polygon(20% 0%, 0% 20%, 60% 52%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 90% 51%, 100% 20%, 80% 0%, 50% 20%);
+}
