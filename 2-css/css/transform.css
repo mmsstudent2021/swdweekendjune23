@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+.box{
+    border: 5px solid black;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.poe{
+    width: 200px;
+    /* transform: translateX(-60px) translateY(-100px); */
+    /* translate: 50px 100px; */
+    /* transform: rotate(-10deg); */
+    /* rotate: -10deg; */
+    /* transform: scale(1.5); */
+    /* transform: scaleX(1.5); */
+    /* transform: scaleY(1.5); */
+    /* scale: 0.6; */
+    /* transform: skewY(10deg); */
+
+    /* transform: rotateX(0deg) rotateY(0deg) rotateZ(15deg); */
+
+    box-shadow: 0 0 15px black;
+    transform: rotateX(10deg) rotateY(10deg);
+}
