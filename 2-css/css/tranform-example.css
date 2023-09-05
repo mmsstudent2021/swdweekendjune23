@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 3000px;
+}
+
+header {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.brand-title {
+  /* border: 2px solid black; */
+}
+
+.menu-box {
+  position: relative;
+}
+
+.toggle-menu {
+  background-color: black;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border: none;
+  font-size: 2rem;
+}
+
+.toggle-menu:focus + nav,
+.toggle-menu.active + nav {
+  transform: translateX(0%);
+}
+
+.menu-box nav {
+  width: 450px;
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  bottom: 0;
+  padding: 200px 40px;
+  background-color: gray;
+  transition: transform 0.5s;
+
+  transform: translateX(100%);
+}
+.menu-link {
+  display: block;
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 40px;
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.ad-box {
+}
+
+.ad {
+  position: fixed;
+  transition: 0.5s;
+}
+
+.ad:nth-child(1) {
+  transform: rotate(-15deg) translateX(-90%) translateY(50px);
+}
+
+.ad:nth-child(2) {
+  transform: rotate(-15deg) translateX(-95%) translateY(100px);
+}
+
+.ad:nth-child(3) {
+  transform: rotate(-15deg) translateX(-100%) translateY(150px);
+}
+
+.ad:hover {
+  transform: rotate(15deg) translateX(0%);
+}
+
+.dropdown {
+  border: 2px solid black;
+  display: inline-block;
+  position: relative;
+  margin-left: 20px;
+}
+
+.dropdown-toggle {
+  color: white;
+  padding: 20px;
+  border: none;
+  font-size: 1rem;
+  background-color: black;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-toggle:focus + .dropdown-menu,
+.dropdown-toggle.active + .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
+}
+
+.dropdown-menu {
+  background-color: white;
+  border: 2px solid black;
+  position: absolute;
+  width: 200px;
+  padding: 20px;
+  left: 0;
+  top: 120%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: 0.2s;
+}
+
+.dropdown-link {
+  display: block;
+  border: 2px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+}
