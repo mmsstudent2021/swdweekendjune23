@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+.ani-box{
+  display: flex;
+  justify-content: center;
+}
+
+.ani-box svg{
+  width: 200px;
+}
+
+.to-ani{
+  animation: zoomIn 0.5s linear 3s both;
+  transform-origin: 300px 360px;
+}
+
+.human{
+  animation: SlideInRight 0.5s linear ;
+  transform-origin: 100px 200px;
+  
+}
+
+body {
+}
+
+main {
+  padding: 50px;
+}
+
+.heading {
+  margin-bottom: 50px;
+  /* animation: ColorChanger 4s linear 3s both; */
+  animation: flipInX 1s linear  both;
+}
+
+.box-title {
+  margin-bottom: 10px;
+}
+
+.box-text {
+  line-height: 1.5em;
+}
+
+.box {
+  background-color: #b4e7fe;
+  margin-bottom: 30px;
+  padding: 50px;
+  /* animation-name: SlideInRight;
+  animation-duration: 0.5s; */
+  /* animation-iteration-count: 6; */
+  /* animation-direction: alternate; */
+  /* animation-timing-function: linear;
+  animation-fill-mode: backwards; */
+}
+
+.slide-in-left{
+    animation: SlideInLeft 0.5s linear backwards;
+}
+
+.slide-out-right{
+    animation: SlideOutRight 0.5s linear forwards;
+}
+
+.slide-in-right{
+    animation: SlideInRight 0.5s linear backwards;
+}
+
+.ani-delay-500{
+    animation-delay: 500ms;
+}
+
+.ani-delay-1000{
+    animation-delay: 1000ms;
+}
+
+.ani-delay-1500{
+    animation-delay: 1500ms;
+}
+
+.fade-in{
+    /* animation: FadeIn 0.5s linear backwards; */
+    animation-name: FadeIn;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+}
+
+.fade-out{
+    animation-name: FadeOut;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    
+}
+
+
+.zoom-in{
+    /* animation: FadeIn 0.5s linear backwards; */
+    animation-name: ZoomIn;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+}
+
+
+.zoom-out{
+    /* animation: FadeIn 0.5s linear backwards; */
+    animation-name: ZoomOut;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+/* .box:nth-child(2) {
+  animation-delay: 0;
+}
+
+.box:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.box:nth-child(4) {
+  animation-delay: 2s;
+} */
+
+@keyframes SlideInLeft {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes SlideOutRight {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(120%);
+    }
+  }
+  
+
+@keyframes SlideInRight {
+    from {
+      transform: translateX(120%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+@keyframes ColorChanger {
+
+    from{
+        color: orangered;
+    }
+    to{
+        color: #337bff;
+    }
+    
+}
+
+@keyframes FadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOut {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes ZoomIn {
+    from{
+        scale: 0.5;
+        opacity: 0;
+    }
+    to{
+        scale: 1;
+        opacity: 1;
+
+    }
+}
+
+@keyframes ZoomOut {
+    from{
+        scale: 1;
+        opacity: 1;
+    }
+    to{
+        scale: 0.5;
+        opacity: 0;
+
+    }
+}
+
+.zoom-in-right{
+    animation-name: ZoomInRight;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+    /* animation-delay: 1s; */
+}
+
+@keyframes ZoomInRight {
+    0%{
+        translate: 120%;
+        scale: 0.5;
+        opacity: 0;
+    }
+    50%{
+        translate: 0%;
+        scale: 0.5;
+        opacity: 1;
+    }
+    100%{
+        scale : 1;
+    }
+}

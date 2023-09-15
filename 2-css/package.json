@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^4.1.1",
     "bootstrap-icons": "^1.10.5"
   }
 }
