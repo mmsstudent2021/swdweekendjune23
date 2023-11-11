@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area Calculator</title>
+    <style>
+      .flex {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+      .result {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Area Calculator</h1>
+    <div class="flex">
+      <p class="result">
+        Result :
+        <span id="output"></span>
+      </p>
+      <button onclick="store()" id="storeBtn">Store</button>
+      <button onclick="clearInput()" id="clearBtn">Clear</button>
+    </div>
+    <div class="calculator">
+      <input type="number" id="width" placeholder="width" />
+      <input type="number" id="breadth" placeholder="breadth" />
+      <button onclick="calculate()" id="calcBtn">Calculate</button>
+    </div>
+    <ul id="lists">
+      <li>15 ft * 50 ft = 750 sqft</li>
+    </ul>
+    <script src="./js/area.js"></script>
+  </body>
+</html>

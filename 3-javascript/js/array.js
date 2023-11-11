@@ -360,12 +360,73 @@ const mixedNumericArray = ["80", "9", "700", 40, 1, 5, 200];
 
 // console.log(total);
 
-
 // console.log(points);
 
 // console.log(points.some(point => point > 50));
 // console.log(points.every(point => point < 100));
 
-const result = products.filter(product => product.price <=50).reduce((pv,cv) => pv + cv.price,0)
+// const result = products.filter(product => product.price <=50).reduce((pv,cv) => pv + cv.price,0)
 
-console.log(result);
+// console.log(result);
+
+class Chain {
+  x() {
+    console.log("x is working");
+    return this;
+  }
+
+  y() {
+    console.log("y is working");
+    return this;
+  }
+
+  z() {
+    console.log("z is working");
+    return this;
+  }
+}
+
+const chain = new Chain();
+// console.log(chain.x().x().z().y());
+
+// console.log(chain.x().y().z())
+
+// $100 အထက်
+// စျေးတင်
+// title - price
+
+const r = products
+  .filter(({ price }) => price > 100)
+  .map(({ price, title }) => {
+    price += 10;
+    return title.substr(0, 11) + " - " + price;
+  })
+  .join("\n");
+
+// console.table(r);
+
+const obj = {
+  a: "aaa",
+  b: "bbb",
+  c: "ccc",
+};
+
+// console.log(obj.a);
+// console.log(obj.b);
+// console.log(obj.c);
+
+// const {a,b} = obj
+
+// console.log(a);
+// console.log(b);
+
+const arr = ["xxx", "yyy", "zzz"];
+
+// console.log(arr[0]);
+// console.log(arr[1]);
+// console.log(arr[2]);
+
+const [x, y] = arr;
+
+// console.log(x);
+// console.log(y);
