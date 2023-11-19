@@ -8,6 +8,20 @@ const textInput = document.getElementById("textInput");
 const btn = document.getElementById("btn");
 const link = document.getElementById("link");
 
+// console.log(document.getElementsByTagName("li"));
+// console.log(document.getElementsByClassName("fruit"));
+// console.log(document.getElementsByClassName("student"));
+
+
+// console.log(document.querySelector("#fruits"));
+// console.log(document.querySelectorAll(".student"));
+// console.log(document.querySelectorAll(".student")[0].innerText);
+// console.log(document.querySelectorAll(".student")[1].innerHTML);
+
+// console.log(document.querySelectorAll("#fruits li"));
+
+
+
 
 // heading.classList.remove("text-violet-600")
 // heading.classList.remove("font-sans")
@@ -19,11 +33,11 @@ const link = document.getElementById("link");
 // heading.classList.toggle("text-center") 
 // heading.classList.toggle("font-sans")
 
-console.log(heading.classList);
+// console.log(heading.classList);
 
-console.log(heading.classList.contains("text-center"));
-console.log(heading.classList.contains("text-4xl"));
-console.log(heading.classList.contains("font-sans"));
+// console.log(heading.classList.contains("text-center"));
+// console.log(heading.classList.contains("text-4xl"));
+// console.log(heading.classList.contains("font-sans"));
 
 
 // btn.classList.add(
