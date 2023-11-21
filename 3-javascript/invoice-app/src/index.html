@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice App</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+  </head>
+  <body>
+    <main id="app" class="container m-auto min-h-screen flex flex-col">
+      <header class="mb-10 py-3">
+        <h1 class="text-3xl font-bold text-gray-700">MMS Solutions</h1>
+        <h4 class="text-xl text-gray-500">Invoice App</h4>
+      </header>
+      <section class="mb-10">
+        <form action="#" class="addRecordForm">
+          <div class="grid grid-cols-5 gap-3">
+            <div class="col-span-2">
+              <label
+                for="productSelect"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Select Your Product</label
+              >
+              <select
+                id="productSelect"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              >
+                <option selected>Choose a country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+              </select>
+            </div>
+            <div class="col-span-2">
+              <label
+                for="quantityInput"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Quantity</label
+              >
+              <input
+                type="number"
+                id="quantityInput"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              />
+            </div>
+            <div class="col-span-1">
+              <button
+                type="button"
+                class="w-full h-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              >
+                Default
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table
+            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+          >
+            <thead
+              class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+            >
+              <tr>
+                <th scope="col" class="px-6 py-3">#</th>
+                <th scope="col" class="px-6 py-3">Product name</th>
+                <th scope="col" class="px-6 py-3 text-end">Price</th>
+                <th scope="col" class="px-6 py-3 text-end">Quantity</th>
+                <th scope="col" class="px-6 py-3 text-end">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+              >
+                <td class="px-6 py-4">1</td>
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4 text-end">2000</td>
+                <td class="px-6 py-4 text-end">2</td>
+                <td class="px-6 py-4 text-end">4000</td>
+              </tr>
+              <tr
+                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+              >
+                <td class="px-6 py-4">1</td>
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4 text-end">2000</td>
+                <td class="px-6 py-4 text-end">2</td>
+                <td class="px-6 py-4 text-end">4000</td>
+              </tr>
+              <tr
+                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+              >
+                <td class="px-6 py-4">1</td>
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4 text-end">2000</td>
+                <td class="px-6 py-4 text-end">2</td>
+                <td class="px-6 py-4 text-end">4000</td>
+              </tr>
+              <tr
+                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+              >
+                <td class="px-6 py-4 text-center" colspan="4">Total</td>
+                <td class="px-6 py-4 text-end">40000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <footer class="py-3 flex gap-2 justify-end mt-auto">
+        <button
+          type="button"
+          class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+        >
+          Manage Product
+        </button>
+     
+        <button
+          type="button"
+          class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Print
+        </button>
+      </footer>
+    </main>
+
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  </body>
+</html>
