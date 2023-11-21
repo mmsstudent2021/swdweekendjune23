@@ -8,6 +8,48 @@ const textInput = document.getElementById("textInput");
 const btn = document.getElementById("btn");
 const link = document.getElementById("link");
 
+
+document.addEventListener("click",(event) => {
+  console.log(event.target);
+})
+
+// textInput.addEventListener("focus",() => {
+//   console.log("U focus");
+// })
+
+// textInput.addEventListener("keyup",(event) => {
+//   if(event.keyCode === 13){
+//     console.log(event);
+//     console.log(textInput.value);
+//   }
+// })
+
+// textInput.addEventListener("keydown",() => {
+//   console.log("U keydown");
+// })
+
+// textInput.addEventListener("blur",() => {
+//   console.log("U blur");
+// })
+
+// heading.addEventListener("click",(event) => {
+//   console.log(event);
+//   console.log("U click");
+// })
+
+// heading.addEventListener("mouseenter",() => {
+//   console.log("U mouse enter");
+// })
+
+// heading.addEventListener("mouseout",() => {
+//   console.log("U mouse out");
+// })
+
+// heading.addEventListener("mousemove",() => {
+//   console.log("U mouse move");
+// })
+
+
 // console.log(document.getElementsByTagName("li"));
 // console.log(document.getElementsByClassName("fruit"));
 // console.log(document.getElementsByClassName("student"));

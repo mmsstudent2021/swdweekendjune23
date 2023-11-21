@@ -24,14 +24,14 @@ const createList = (text) => {
   list.classList.add("list");
   list.innerHTML = `
     <div
-        class="border mb-3 border-neutral-700 p-5 flex justify-between items-center"
+        class="group animate__animated animate__fadeInLeft border mb-3 overflow-hidden border-neutral-700 p-5 flex justify-between items-center"
     >
               <div class="content flex items-center gap-3">
                 <input class="list-check accent-neutral-700 w-4 h-4" type="checkbox" />
                 <div class='list-text'>${text}</div>
               </div>
-              <div class="control">
-                <button class="list-edit">
+              <div class="control opacity-100 pointer-events-none duration-300 translate-x-[100px] group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-x-0 flex gap-1">
+                <button class="list-edit duration-300 active:scale-75 disabled:opacity-20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -47,7 +47,7 @@ const createList = (text) => {
                     />
                   </svg>
                 </button>
-                <button  class="list-del">
+                <button  class="list-del duration-300 active:scale-75">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -71,8 +71,11 @@ const createList = (text) => {
   const delList = list.querySelector(".list-del");
   const delListHandler = () => {
     if (confirm("Are U sure to delete?")) {
-      list.remove();
-      listCounter();
+      list.classList.add("animate__animated", "animate__fadeOutRight");
+      list.addEventListener("animationend", () => {
+        list.remove();
+        listCounter();
+      });
     }
   };
   delList.addEventListener("click", delListHandler);
@@ -97,10 +100,17 @@ const createList = (text) => {
 
     listText.innerText = null;
     listText.append(input);
+    input.focus();
     input.value = currentText;
 
     input.addEventListener("blur", () => {
       listText.innerText = input.value;
+    });
+
+    input.addEventListener("keyup", (event) => {
+      if (event.key === "Escape") {
+        listText.innerText = input.value;
+      }
     });
   };
   editList.addEventListener("click", editListHandler);
@@ -109,6 +119,7 @@ const createList = (text) => {
   listCheck.addEventListener("click", () => {
     const listText = list.querySelector(".list-text");
     listText.classList.toggle("line-through");
+    editList.toggleAttribute("disabled");
     listCounter();
   });
 
@@ -132,5 +143,12 @@ const addBtnHandler = () => {
   listCounter();
 };
 
+const textInputHandler = (event) => {
+  if (event.key === "Enter") {
+    addBtnHandler();
+  }
+};
+
 // listener
 addBtn.addEventListener("click", addBtnHandler);
+textInput.addEventListener("keyup", textInputHandler);
