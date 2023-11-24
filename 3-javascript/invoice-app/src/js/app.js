@@ -6,6 +6,13 @@ const quantityInput = app.querySelector("#quantityInput");
 const recordGroup = app.querySelector("#recordGroup");
 const recordTotal = app.querySelector("#recordTotal");
 const printBtn = app.querySelector("#printBtn");
+const productDrawer = app.querySelector("#productDrawer");
+const closeDrawer = app.querySelector("#closeDrawer");
+const productGroup = app.querySelector("#productGroup");
+const newProductForm = app.querySelector("#newProductForm");
+const manageProductBtn = app.querySelector("#manageProductBtn");
+
+const productTemplate = app.querySelector("#productTemplate");
 
 // data
 const products = [
@@ -39,6 +46,14 @@ const products = [
 let tableIndex = 1;
 
 // functions
+
+const productUi = ({ name, price }) => {
+  const product = productTemplate.content.cloneNode(true);
+  product.querySelector(".product-name").innerText = name;
+  product.querySelector(".product-price").innerText = price;
+  return product;
+};
+
 const productOption = (id, name) => {
   const option = document.createElement("option");
   option.innerText = name;
@@ -47,7 +62,10 @@ const productOption = (id, name) => {
 };
 
 const productRender = (items) => {
-  items.forEach(({ id, name }) => productSelect.append(new Option(name, id)));
+  items.forEach((item) => {
+    productSelect.append(new Option(item.name, item.id));
+    productGroup.append(productUi(item));
+  });
 };
 
 const calculateRecordTotal = () => {
@@ -65,9 +83,10 @@ const calculateRecordTotal = () => {
   return total;
 };
 
-const recordUi = (productName, productPrice, quantity) => {
+const recordUi = (id, productName, productPrice, quantity) => {
   const cost = productPrice * quantity;
   const tr = document.createElement("tr");
+  tr.setAttribute("product-id", id);
   tr.className =
     "group odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700";
   tr.innerHTML = `
@@ -78,8 +97,25 @@ const recordUi = (productName, productPrice, quantity) => {
     >
         ${productName}
     </th>
-    <td class="px-6 py-4 text-end">${productPrice}</td>
-    <td class="px-6 py-4 text-end">${quantity}</td>
+    <td class="px-6 py-4 text-end record-price">${productPrice}</td>
+    <td class="px-6 py-4 text-end">
+
+    <button class="q-sub pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 -translate-x-6 group-hover:translate-x-0 duration-200 bg-blue-100 text-blue-600 p-1 rounded">
+
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 pointer-events-none">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+      </svg>
+      </button>
+
+      <span class="record-q w-5 inline-block">${quantity}</span>
+
+      <button class="q-add pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 translate-x-6 group-hover:translate-x-0 duration-200 bg-blue-100 text-blue-600 p-1 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 pointer-events-none">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+    
+      </button>
+    </td>
     <td class="px-6 py-4 text-end relative">
 
     <span class='record-cost'>${cost}</span>
@@ -115,16 +151,35 @@ const recordFormHandler = (event) => {
   // console.log(productSelect.value);
   // console.log(currentProduct);
   // console.log(quantityInput.valueAsNumber);
-  recordGroup.append(
-    recordUi(
-      currentProduct.name,
-      currentProduct.price,
-      quantityInput.valueAsNumber
-    )
-  );
 
-  recordForm.reset();
-  calculateRecordTotal();
+  const isExist = app.querySelector(`[product-id='${currentProduct.id}']`);
+
+  if (isExist) {
+    const currentRowQ = isExist.querySelector(".record-q");
+    const currentRowPrice = isExist.querySelector(".record-price");
+    const currentRowCost = isExist.querySelector(".record-cost");
+
+    currentRowQ.innerText =
+      parseInt(currentRowQ.innerText) + quantityInput.valueAsNumber;
+
+    currentRowCost.innerText =
+      currentRowQ.innerText * currentRowPrice.innerText;
+
+    recordForm.reset();
+    calculateRecordTotal();
+  } else {
+    recordGroup.append(
+      recordUi(
+        currentProduct.id,
+        currentProduct.name,
+        currentProduct.price,
+        quantityInput.valueAsNumber
+      )
+    );
+
+    recordForm.reset();
+    calculateRecordTotal();
+  }
 };
 
 const recordGroupHandler = (event) => {
@@ -134,6 +189,30 @@ const recordGroupHandler = (event) => {
       event.target.closest("tr").remove();
       calculateRecordTotal();
     }
+  } else if (event.target.classList.contains("q-add")) {
+    const currentRow = event.target.closest("tr");
+    const currentRowQ = currentRow.querySelector(".record-q");
+    const currentRowPrice = currentRow.querySelector(".record-price");
+    const currentRowCost = currentRow.querySelector(".record-cost");
+
+    currentRowQ.innerText = parseInt(currentRowQ.innerText) + 1;
+    currentRowCost.innerText =
+      currentRowQ.innerText * currentRowPrice.innerText;
+
+    calculateRecordTotal();
+  } else if (event.target.classList.contains("q-sub")) {
+    const currentRow = event.target.closest("tr");
+    const currentRowQ = currentRow.querySelector(".record-q");
+    const currentRowPrice = currentRow.querySelector(".record-price");
+    const currentRowCost = currentRow.querySelector(".record-cost");
+
+    if (currentRowQ.innerText > 1) {
+      currentRowQ.innerText = parseInt(currentRowQ.innerText) - 1;
+      currentRowCost.innerText =
+        currentRowQ.innerText * currentRowPrice.innerText;
+
+      calculateRecordTotal();
+    }
   }
 };
 
@@ -141,7 +220,35 @@ const printBtnHandler = () => {
   print();
 };
 
+const manageProductBtnHandler = () => {
+  productDrawer.classList.toggle("translate-x-full");
+  productDrawer.classList.add("duration-200");
+};
+
+const newProductFormHandler = (event) => {
+  event.preventDefault();
+  const formData = new FormData(newProductForm);
+
+  console.log(formData.get("new_product_name"));
+  console.log(formData.get("new_product_price"));
+
+  const newProduct = {
+    id: Date.now(),
+    name: formData.get("new_product_name"),
+    price: formData.get("new_product_price"),
+  };
+
+  productGroup.append(productUi(newProduct));
+  productSelect.append(new Option(newProduct.name, newProduct.id));
+  products.push(newProduct);
+
+  newProductForm.reset();
+};
+
 // listener
 recordForm.addEventListener("submit", recordFormHandler);
 recordGroup.addEventListener("click", recordGroupHandler);
 printBtn.addEventListener("click", printBtnHandler);
+manageProductBtn.addEventListener("click", manageProductBtnHandler);
+closeDrawer.addEventListener("click", manageProductBtnHandler);
+newProductForm.addEventListener("submit", newProductFormHandler);
