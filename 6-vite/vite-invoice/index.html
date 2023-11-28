@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice App</title>
+  </head>
+  <body class="px-5 md:px-0">
+    <main id="app" class="max-w-[700px] mx-auto min-h-screen flex flex-col">
+      <header class="mb-10 mt-10 font-heading">
+        <h1 class="text-3xl font-bold text-gray-700">MMS Solutions</h1>
+        <h4 class="text-xl text-gray-500">Invoice App</h4>
+      </header>
+      <section class="mb-10 block print:hidden">
+        <form action="#" id="recordForm">
+          <div class="grid grid-cols-5 gap-3">
+            <div class="col-span-2">
+              <label
+                for="productSelect"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Select Your Product</label
+              >
+              <select
+                id="productSelect"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              ></select>
+            </div>
+            <div class="col-span-2">
+              <label
+                for="quantityInput"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Quantity</label
+              >
+              <input
+                type="number"
+                id="quantityInput"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              />
+            </div>
+            <div class="col-span-1">
+              <button
+                type="submit"
+                class="font-heading w-full h-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              >
+                Buy
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section>
+        <div class="relative shadow-md sm:rounded-lg">
+          <table
+            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+          >
+            <thead
+              class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
+            >
+              <tr>
+                <th scope="col" class="px-6 py-3">#</th>
+                <th scope="col" class="px-6 py-3">Product name</th>
+                <th scope="col" class="px-6 py-3 text-end">Price</th>
+                <th scope="col" class="px-6 py-3 text-end">Quantity</th>
+                <th scope="col" class="px-6 py-3 text-end">Cost</th>
+              </tr>
+            </thead>
+            <tbody id="recordGroup">
+              <!-- <tr
+                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+              >
+                <td class="px-6 py-4">1</td>
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4 text-end">2000</td>
+                <td class="px-6 py-4 text-end">2</td>
+                <td class="px-6 py-4 text-end">4000</td>
+              </tr> -->
+
+              <tr class="hidden last:table-row border-b">
+                <td colspan="5" class="px-6 py-4 text-center">
+                  There is no record. Buy Something
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="border-b">
+                <td class="px-6 py-4 text-center" colspan="4">Total</td>
+                <td class="px-6 py-4 text-end" id="recordTotal">0</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="hidden mt-0 print:block print:mt-10">
+          <p class="font-bold">ဝယ်ယူအားပေးမူ့ကို ကျေးဇူး အထူးတင်ရှိပါသည်။</p>
+          <p class="text-gray-600">နောက်လည်း လာအားပေးပါခင်ဗျာ။</p>
+        </div>
+      </section>
+      <footer class="py-3 flex print:hidden gap-2 justify-end mt-auto">
+        <button
+          type="button"
+          id="manageProductBtn"
+          class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+        >
+          Manage Product
+        </button>
+
+        <button
+          id="printBtn"
+          class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Print
+        </button>
+      </footer>
+
+      <div
+        id="productDrawer"
+        class="h-screen w-96 translate-x-full bg-white fixed right-0 shadow-lg overflow-scroll"
+      >
+        <div class="p-3 flex items-center justify-between">
+          <div class="">
+            <h1 class="text-3xl font-bold text-gray-700">Your Product</h1>
+            <h4 class="text-xl text-gray-500">Manage Product</h4>
+          </div>
+          <button id="closeDrawer" class="p-3 bg-blue-100 text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div id="productGroup" class="p-3"></div>
+        <div class="border-t-2 p-3">
+          <form id="newProductForm" action="">
+            <div class="grid grid-cols-3 gap-3">
+              <div class="col-span-3">
+                <label
+                  for="newProductName"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >New Product Name</label
+                >
+                <input
+                  type="text"
+                  id="newProductName"
+                  name="new_product_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                />
+              </div>
+              <div class="col-span-2">
+                <label
+                  for="newProductPrice"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Product Price</label
+                >
+                <input
+                  type="number"
+                  id="newProductPrice"
+                  name="new_product_price"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                />
+              </div>
+              <div class="col-span-1">
+                <button
+                  type="submit"
+                  class="w-full h-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <template id="productTemplate">
+        <div
+          class="border-2 border-blue-200 p-5 flex justify-between items-center mb-3"
+        >
+          <p class="product-name">Test Product</p>
+          <p class="product-price">1000</p>
+        </div>
+      </template>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+
+  </body>
+</html>
