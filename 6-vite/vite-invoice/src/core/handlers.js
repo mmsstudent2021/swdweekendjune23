@@ -1,13 +1,16 @@
+import Swal from "sweetalert2";
 import { productUi } from "../app/product";
-import { calculateRecordTotal, recordUi } from "../app/record";
+import { calculateRecordTotal, recordUi, recordUpdate } from "../app/record";
 import {
   app,
   newProductForm,
   productDrawer,
+  quantityInput,
   recordForm,
   recordGroup,
 } from "./selectors";
 import { products } from "./variables";
+import { confirmBox, toast } from "./functions";
 
 export const manageProductBtnHandler = () => {
   productDrawer.classList.toggle("translate-x-full");
@@ -44,18 +47,7 @@ export const recordFormHandler = (event) => {
   const isExist = app.querySelector(`[product-id='${currentProduct.id}']`);
 
   if (isExist) {
-    const currentRowQ = isExist.querySelector(".record-q");
-    const currentRowPrice = isExist.querySelector(".record-price");
-    const currentRowCost = isExist.querySelector(".record-cost");
-
-    currentRowQ.innerText =
-      parseInt(currentRowQ.innerText) + quantityInput.valueAsNumber;
-
-    currentRowCost.innerText =
-      currentRowQ.innerText * currentRowPrice.innerText;
-
-    recordForm.reset();
-    calculateRecordTotal();
+    recordUpdate(currentProduct.id, quantityInput.valueAsNumber);
   } else {
     recordGroup.append(
       recordUi(
@@ -65,43 +57,22 @@ export const recordFormHandler = (event) => {
         quantityInput.valueAsNumber
       )
     );
-
-    recordForm.reset();
-    calculateRecordTotal();
   }
+
+  recordForm.reset();
 };
 
 export const recordGroupHandler = (event) => {
   // console.log(event.target);
   if (event.target.classList.contains("record-del")) {
-    if (confirm("Are U sure to delete ?")) {
+    confirmBox(() => {
       event.target.closest("tr").remove();
-      calculateRecordTotal();
-    }
+      toast("Delete successful");
+    },"Do U want to delete ?");
   } else if (event.target.classList.contains("q-add")) {
-    const currentRow = event.target.closest("tr");
-    const currentRowQ = currentRow.querySelector(".record-q");
-    const currentRowPrice = currentRow.querySelector(".record-price");
-    const currentRowCost = currentRow.querySelector(".record-cost");
-
-    currentRowQ.innerText = parseInt(currentRowQ.innerText) + 1;
-    currentRowCost.innerText =
-      currentRowQ.innerText * currentRowPrice.innerText;
-
-    calculateRecordTotal();
+    recordUpdate(event.target.closest("tr").getAttribute("product-id"), 1);
   } else if (event.target.classList.contains("q-sub")) {
-    const currentRow = event.target.closest("tr");
-    const currentRowQ = currentRow.querySelector(".record-q");
-    const currentRowPrice = currentRow.querySelector(".record-price");
-    const currentRowCost = currentRow.querySelector(".record-cost");
-
-    if (currentRowQ.innerText > 1) {
-      currentRowQ.innerText = parseInt(currentRowQ.innerText) - 1;
-      currentRowCost.innerText =
-        currentRowQ.innerText * currentRowPrice.innerText;
-
-      calculateRecordTotal();
-    }
+    recordUpdate(event.target.closest("tr").getAttribute("product-id"), -1);
   }
 };
 

@@ -1,4 +1,5 @@
 import { productRender } from "./app/product";
+import { recordObserver } from "./app/record";
 import {
   manageProductBtnHandler,
   newProductFormHandler,
@@ -17,6 +18,11 @@ import {
 import { products } from "./core/variables";
 
 class Invoice {
+
+  observers(){
+    recordObserver()
+  }
+
   initialRender() {
     productRender(products);
   }
@@ -32,6 +38,7 @@ class Invoice {
 
   init() {
     console.log("Invoice App start");
+    this.observers();
     this.initialRender();
     this.listener();
   }

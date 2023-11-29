@@ -12,3 +12,4 @@ export const newProductForm = app.querySelector("#newProductForm");
 export const manageProductBtn = app.querySelector("#manageProductBtn");
 
 export const productTemplate = app.querySelector("#productTemplate");
+export const recordTemplate = app.querySelector("#recordTemplate");
