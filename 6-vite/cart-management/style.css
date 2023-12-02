@@ -1,11 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Padauk:wght@400;700&family=Rubik:wght@400;500;600&display=swap");
 
+@import url("./node_modules/sweetalert2/dist/sweetalert2.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.swal2-confirm{
+  @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 !important;
+}
+
+.swal2-cancel{
+  @apply text-blue-700 bg-blue-100 hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 !important;
+
+}
+
 .box {
-  @apply max-w-[1140px] mx-auto px-3 lg:px-0;
+  @apply max-w-[1140px] mx-auto px-3 md:px-12 lg:px-0;
 }
 
 .cat-btn {
