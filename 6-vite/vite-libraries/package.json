@@ -1,0 +1,27 @@
+{
+  "name": "vite-invoice",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "@glidejs/glide": "^3.6.0",
+    "animate.css": "^4.1.1",
+    "aos": "^3.0.0-beta.6",
+    "chart.js": "^4.4.1",
+    "flowbite": "^2.2.0",
+    "typed.js": "^2.1.0",
+    "waypoints": "^4.0.1",
+    "wow.js": "^1.2.2"
+  }
+}

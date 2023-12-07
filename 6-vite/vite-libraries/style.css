@@ -1,0 +1,13 @@
+@import url("./node_modules/animate.css/animate.css");
+@import url("./node_modules/aos/dist/aos.css");
+@import url("./node_modules/@glidejs/glide/dist/css/glide.core.css");
+@import url("./node_modules/@glidejs/glide/dist/css/glide.theme.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.glide__slide.glide__slide--active img{
+    @apply scale-75 duration-300;
+}
