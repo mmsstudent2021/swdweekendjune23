@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Invoice App</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/7176/7176657.png">
   </head>
   <body class="px-5 md:px-0">
     <main id="app" class="max-w-[700px] mx-auto min-h-screen flex flex-col">
@@ -51,19 +52,19 @@
         </form>
       </section>
       <section>
-        <div class="relative shadow-md sm:rounded-lg">
+        <div class="relative shadow-md sm:rounded-lg overflow-hidden">
           <table
             class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
           >
             <thead
               class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
             >
-              <tr>
-                <th scope="col" class="px-6 py-3">#</th>
-                <th scope="col" class="px-6 py-3">Product name</th>
-                <th scope="col" class="px-6 py-3 text-end">Price</th>
-                <th scope="col" class="px-6 py-3 text-end">Quantity</th>
-                <th scope="col" class="px-6 py-3 text-end">Cost</th>
+              <tr class=" ">
+                <th scope="col" class="px-6 py-4">#</th>
+                <th scope="col" class="px-6 py-4">Product name</th>
+                <th scope="col" class="px-6 py-4 text-end">Price</th>
+                <th scope="col" class="px-6 py-4 text-end">Quantity</th>
+                <th scope="col" class="px-6 py-4 text-end">Cost</th>
               </tr>
             </thead>
             <tbody id="recordGroup">
@@ -178,7 +179,7 @@
 
       <template id="productTemplate">
         <div
-          class="border-2 border-blue-200 p-5 flex justify-between items-center mb-3"
+          class="border border-gray-200 rounded-lg p-4 flex justify-between items-center mb-3"
         >
           <p class="product-name">Test Product</p>
           <p class="product-price">1000</p>
