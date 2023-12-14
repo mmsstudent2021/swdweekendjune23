@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #piano {
+        border: 1px solid rgb(194, 194, 194);
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        font-family: monospace;
+        perspective: 1500px;
+      }
+
+      .key {
+        border: 1px solid gray;
+        flex-grow: 1;
+        text-align: center;
+        padding: 150px 0 20px 0;
+        color: gray;
+        user-select: none;
+        cursor: pointer;
+        transition-duration: 100ms;
+      }
+      .key.active {
+        background: #eaeaea;
+        transform: rotateX(-15deg);
+        transform-origin: top center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="piano"></div>
+    <script src="js/piano.js"></script>
+  </body>
+</html>

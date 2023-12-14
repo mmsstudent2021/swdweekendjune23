@@ -1,0 +1,8 @@
+{
+  "name": "hein htet zan",
+  "age": 29,
+  "skill": ["html", "css", "js"],
+  "girl_friend": null,
+  "money": 12000,
+  "handsome": true
+}
