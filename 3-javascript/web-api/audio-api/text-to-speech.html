@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .textInput{
+            width: 500px;
+            margin: 20px auto;
+            display: block;
+            padding: 10px;
+            box-sizing: border-box;
+            
+        }
+        .box{
+            width: 500px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <textarea class="textInput" id="textInput" rows="10"></textarea>
+    <div class="box">
+        <button id="speechBtn">Speech</button>
+        <button id="recordBtn">record</button>
+        <span id="recordStatus"></span>
+    </div>
+    <script src="./js/tts.js"></script>
+</body>
+</html>
